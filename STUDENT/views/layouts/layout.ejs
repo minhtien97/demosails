@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Sails App</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+    <%/* <meta name="robots" content="noindex"> */%>
+
+
+    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <!--STYLES END-->
+  </head>
+
+  <body>
+    <header id="header" style="background-color:black;opacity:0.9">
+      <div class="inner">
+          <nav id="nav">
+              <a href="/">Home</a>
+              <a href="/add">New Student</a>
+              <a href="/list">List Student</a>
+          </nav>
+      </div>
+  </header>
+    <div class="container">
+      <%- body %>
+    </div>
+
+
+
+    <script src="/dependencies/sails.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>
