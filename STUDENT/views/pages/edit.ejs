@@ -1,0 +1,13 @@
+<section id="form">
+  <div class="col-sm-offset-3 col-sm-6">
+    <div class="form-style" style="margin-top:-1%;">
+      <form method="post" action="/students/update/<%= student.id %>">
+        <input type="text" name="name" value="<%= student.name %>" placeholder="Full Name" />
+        <input type="text" name="age" value="<%= student.age %>" placeholder="age" />
+        <input type="text" name="phone" value="<%= student.phone %>" placeholder="phone" />
+        <input type="email" name="email" value="<%= student.email %>" placeholder="email">
+        <input type="submit" value="Update" />
+      </form>
+    </div>
+  </div>
+</section>

@@ -16,7 +16,6 @@ module.exports = {
                 res.send(500, {error: 'Database Error'});
             }
             res.view('pages/list', {students:students});
-            // console.log('It Worked');
         });
     },
     create:function(req, res){
@@ -29,19 +28,44 @@ module.exports = {
             if(err){
                 res.send(500, {err: 'Database Error'});
             }
-
             res.redirect('/list');
-            // alert("Submitted Sucessfully");
         });
 
     },
+
     delete:function(req, res){
-        Students.destroy({id:req.params.id}).exec(function(err){
+        var id = req.params.id;
+        Students.destroy({id:id}).exec(function(err){
             if(err){
                 res.send(500, {error: 'Database error'});
             }
             res.redirect('/list');
         });
+        return false;
+    },
+    edit:function(req,res){
+        var id = req.body.id;
+        Students.findOne({id:id}).exec(function(err,student){
+            if(err){
+                res.send(500, {error: 'Database error'});
+            }
+            res.view('pages/edit', {student:student});
+        });
+        return false;
+    },
+    update:function(req,res){
+        var id = req.params.id;
+        let name = req.body.name;
+        let age = req.body.age;
+        let phone = req.body.phone;
+        let email = req.body.email;
+        Students.update({id:id},{name:name, age:age, phone:phone , email:email}).exec(function(err){
+            if(err){
+                res.send(500, {error: 'Database error'});
+            }
+            res.redirect('/list');
+        });
+        return false;
     }
 
 };

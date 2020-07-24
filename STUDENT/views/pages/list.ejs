@@ -1,42 +1,47 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
-td{
-    padding: 10px;
-}
+    td {
+        padding: 10px;
+    }
 </style>
 
 <div class="container">
     <h2>New Registrations</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>age</th>
-            <th>phone</th>
-            <th>email</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% students.forEach(function(student){ %>
-        <tr>
-           <td><%= student.id %></td>
-           <td><%= student.name %></td>
-           <td><%= student.age %></td>
-           <td><%= student.phone %></td>
-           <td><%= student.email %></td>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>age</th>
+                <th>phone</th>
+                <th>email</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach(function(student){ %>
+            <tr>
+                <td><%= student.id %></td>
+                <td><%= student.name %></td>
+                <td><%= student.age %></td>
+                <td><%= student.phone %></td>
+                <td><%= student.email %></td>
 
+                <td>
+                    <form method="post" action="students/edit">
+                        <input type="hidden" name="id" value="<%= student.id %>">
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </form>
+                </td>
+                <td>
+                    <a href="/students/delete/<%= student.id %>" class="btn btn-danger">Delete</a>
+                </td>
 
-           <td>
-               <form method="post" action="/students/delete">
-                <input type="submit" value="Delete" class="btn btn-danger"/>
-            </form>
-           </td>
-
-        </tr>
-        <% }) %>
-    </tbody>
-</table>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
 </div>

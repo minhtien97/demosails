@@ -19,14 +19,26 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' ,locals:{
-    layout :'layouts/layout'
-}},
-  'get /add': {view: 'pages/add',locals:{
-    layout :'layouts/layout'
-}},
+  '/': {
+    view: 'pages/homepage', locals: {
+      layout: 'layouts/layout'
+    }
+  },
+  'get /add': {
+    view: 'pages/add', locals: {
+      layout: 'layouts/layout'
+    }
+  },
+  'get /edit': {
+    view: 'pages/edit', locals: {
+      layout: 'layouts/layout'
+    }
+  },
   'get /list': 'StudentsController.list',
-  'post /students/create': 'StudentsController.create'
+  'post /students/create': 'StudentsController.create',
+  'post /students/edit': 'StudentsController.edit',
+  'post /students/update/:id': 'StudentsController.update',
+  'get /students/delete/:id': 'StudentsController.delete',
 
 
   /***************************************************************************
